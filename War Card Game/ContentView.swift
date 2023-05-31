@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @State var playerCard = "card7"
     @State var cpuCard = "card13"
-    
     @State var playerScore = 0
     @State var cpuScore = 0
-    
     var body: some View {
-        
         ZStack{
             Image("background-cloth")
                 .resizable()
@@ -34,14 +30,11 @@ struct ContentView: View {
                     Spacer()
                 }
                 Spacer()
-                
                 Button {
                     deal()
                 } label: {
                     Image("button")
                 }
-
-                
                 Spacer()
                 HStack{
                     Spacer()
@@ -57,21 +50,16 @@ struct ContentView: View {
                     Spacer()
                 }.foregroundColor(.white)
                 Spacer()
-                
-                
             }
         }
     }
-    
     func deal() {
         // Randomise the players card
         @State var playerCardValue = Int.random(in: 2...14)
         playerCard = "card" + String(playerCardValue)
-        
         // Randomise the cpus card
         @State var cpuCardValue = Int.random(in: 2...14)
         cpuCard = "card" + String(cpuCardValue)
-        
         // Update the scores
         if playerCardValue > cpuCardValue {
             playerScore += 1
@@ -79,7 +67,6 @@ struct ContentView: View {
             cpuScore += 1
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
